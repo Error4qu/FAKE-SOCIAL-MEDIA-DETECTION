@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="dynamic"><span class="dynamicHead"></span></h1>
+    
+    <!-- Include Typed.js for dynamic heading -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed(".dynamicHead", {
+            strings: ["Suspicious?", "Let's Authenticate!"],
+            typeSpeed: 70,
+            backSpeed: 70,
+            loop: true,
+        });
+    </script>
+    
+    <br>
+
+    <form id="myForm" action="/submit" method="POST">
+        <fieldset>
+            <legend class="fieldsetHead">Basic Details</legend>
+            <div class="divi">
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name" class="data">
+                <label for="id">Id: </label>
+                <input type="text" id="id" name="id" class="data">
+            </div>
+            <div class="divi">
+                <label for="screenName">Screen Name: </label>
+                <input type="text" id="screenName" name="screenName" class="data">
+                <label for="url">Profile URL: </label>
+                <input type="text" id="url" name="url" class="data">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend class="fieldsetHead">Count Details</legend>
+            <div class="divi">
+                <label for="statusCnt">Status Count : </label>
+                <input type="text" id="statusCnt" class="data">
+                <label for="followerCnt">Followers Count : </label>
+                <input type="text" id="followerCnt" class="data">
+                <label for="friendCnt">Friends Count : </label>
+                <input type="text" id="friendCnt" class="data">
+            </div>
+            <div class="divi">
+                <label for="favCnt">Favourite Count : </label>
+                <input type="text" id="favCnt" class="data">
+                <label for="listedCnt">Listed Count : </label>
+                <input type="text" id="listedCnt" class="data">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend class="fieldsetHead">Region Details</legend>
+            <div class="divi">
+                <label for="location">Location : </label>
+                <input type="text" id="location" class="data">
+                <label for="language">Language : </label>
+                <input type="text" id="language" class="data">
+                <label for="createdAt">Created at : </label>
+                <input type="text" id="createdAt" class="data">
+            </div>
+            <div class="divi">
+                <label for="timeZone">Time Zone : </label>
+                <input type="text" id="timeZone" class="data">
+                <label for="geo">Geo Enabled : </label>
+                <input type="text" id="geo" class="data">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend class="fieldsetHead">Profile Details</legend>
+            <div class="divi">
+                <label for="defProfile">Default Profile : </label>
+                <input type="text" id="defProfile" class="data">
+                <label for="bannerUrl">Profile Banner URL : </label>
+                <input type="text" id="bannerUrl" class="data">
+                <label for="sidebarBorder">Sidebar Border Color : </label>
+                <input type="text" id="sidebarBorder" class="data">
+                <label for="textCol">Profile Text Color : </label>
+                <input type="text" id="textCol" class="data">
+            </div>
+            <div class="divi">
+                <label for="bgCol">Profile Background Color : </label>
+                <input type="text" id="bgCol" class="data">
+                <label for="bgTile">Profile Background Tile : </label>
+                <input type="text" id="bgTile" class="data">
+                <label for="sidebarFill">Sidebar Fill Color : </label>
+                <input type="text" id="sidebarFill" class="data">
+                <label for="linkCol"> Profile Link Color : </label>
+                <input type="text" id="linkCol" class="data">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend class="fieldsetHead">Profile Image Details</legend>
+            <div class="divi">
+                <label for="defProfileImg">Default Profile Image : </label>
+                <input type="text" id="defProfileImg" class="data">
+                <label for="imgUrl">Image URL : </label>
+                <input type="text" id="imgUrl" class="data">
+            </div>
+            <div class="divi">
+                <label for="bgImage">Background Image : </label>
+                <input type="text" id="bgImage" class="data">
+                <label for="bgImgUrl">Background Image URL: </label>
+                <input type="text" id="bgImgUrl" class="data">
+            </div>
+        </fieldset>
+
+        <br>
+        <input type="submit" id="search" value="Submit">
+    </form>
+
+    <!-- Updated JavaScript to capture all form data -->
+    <script>
+        document.getElementById('myForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                id: document.getElementById('id').value,
+                screenName: document.getElementById('screenName').value,
+                url: document.getElementById('url').value,
+                statusCnt: document.getElementById('statusCnt').value,
+                followerCnt: document.getElementById('followerCnt').value,
+                friendCnt: document.getElementById('friendCnt').value,
+                favCnt: document.getElementById('favCnt').value,
+                listedCnt: document.getElementById('listedCnt').value,
+                location: document.getElementById('location').value,
+                language: document.getElementById('language').value,
+                createdAt: document.getElementById('createdAt').value,
+                timeZone: document.getElementById('timeZone').value,
+                geo: document.getElementById('geo').value,
+                defProfile: document.getElementById('defProfile').value,
+                bannerUrl: document.getElementById('bannerUrl').value,
+                sidebarBorder: document.getElementById('sidebarBorder').value,
+                textCol: document.getElementById('textCol').value,
+                bgCol: document.getElementById('bgCol').value,
+                bgTile: document.getElementById('bgTile').value,
+                sidebarFill: document.getElementById('sidebarFill').value,
+                linkCol: document.getElementById('linkCol').value,
+                defProfileImg: document.getElementById('defProfileImg').value,
+                imgUrl: document.getElementById('imgUrl').value,
+                bgImage: document.getElementById('bgImage').value,
+                bgImgUrl: document.getElementById('bgImgUrl').value
+            };
+
+            const response = await fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.text();
+            alert(result);
+        });
+    </script>
+</body>
+</html>
